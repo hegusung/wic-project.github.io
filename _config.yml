@@ -1,0 +1,16 @@
+---
+title: WIC
+
+exclude: ['/Gemfile', '/Makefile', '/README.md', '/NOTICE.md', 'LICENSE']
+
+permalink: pretty
+
+collections:
+  wic:
+    output: true
+
+defaults:
+  - scope:
+      path: '_wic'
+    values:
+      layout: 'bin'
