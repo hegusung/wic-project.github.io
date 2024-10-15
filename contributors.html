@@ -35,7 +35,7 @@ title: Contributors
     <tbody>
         {%- assign resources_url_all = '' | split: ',' -%}
         {%- assign sites_expand = 'twitter.com,github.com,gist.github.com,medium.com,slideshare.net' | split: ',' -%}
-        {%- for file in site.lolbas -%}
+        {%- for file in site.wic -%}
             {%- for resource in file.Resources -%}
                 {% assign base_url_ = resource.Link | downcase | replace: "www.","" | split: '//' | last | split: '/' -%}
                 {% assign base_url = base_url_[0] -%}
