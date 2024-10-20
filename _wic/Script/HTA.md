@@ -10,8 +10,7 @@ Categories:
     MitreID: T1059
     OperatingSystem: Windows XP, Windows 7, Windows 8, Windows 10, Windows 11
     Code_Sample:
-     - Code: https://gist.github.com/HiroNakamura/8134cb85eaef7ef1fd9557a19240e585#file-application-hta
-     - Code: https://gist.github.com/HiroNakamura/8134cb85eaef7ef1fd9557a19240e585#file-application-hta
+      - Code: https://gist.github.com/HiroNakamura/8134cb85eaef7ef1fd9557a19240e585#file-application-hta
     Tags:
       - Origin: LOLBas
       - Origin: Clickable
