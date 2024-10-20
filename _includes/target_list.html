@@ -1,0 +1,7 @@
+<div class="function-list">
+	{%- assign catergors = include.bin.Categories | group_by:"Category" -%}
+	{%- for cats in catergors -%}
+	{%- assign type = cats.name | downcase -%}
+	<div><a href="{{ site.url | relative_url }}#/{{ type | url_encode | replace:'+','%18'}}">{{ cats.name }}</a></div>
+	{%- endfor -%}
+</div>

@@ -1,0 +1,25 @@
+{
+    "name": "The LOLBAS Project",
+    "versions": {"attack": "15", "navigator": "4.9.5", "layer": "4.5"},
+    "domain": "enterprise-attack",
+    "description": "ATT&CK alignment of the LOLBAS project, see https://lolbas-project.github.io/.",
+    "filters": {"platforms": ["Windows"]},
+    "layout": {
+        "layout": "flat",
+        "aggregateFunction": "average",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "expandedSubtechniques": "none"
+    },
+    "techniques": [],
+    "gradient": {
+        "colors": ["#cdf0fc", "#0d89b3"],
+        "minValue": 0,
+        "maxValue": 0
+    },
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false
+}

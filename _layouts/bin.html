@@ -16,14 +16,6 @@ layout: common
 	</script>
 
 	<script src="{{ '/assets/url_helper.js' | relative_url }}"></script>
-	<section>
-		<h3>Paths:</h3>
-		<ul style="list-style-type:none">
-		{%- for ent in page.Full_Path %}
-			<li data-file-path>{{ent.Path | escape }}</li>
-		{%- endfor %}
-		</ul>
-	</section>
 	{%- assign resources = page.Resources | where_exp:"resource","resource.Link" %}
 
 	{%- if resources and resources.size > 0 %}
@@ -64,27 +56,30 @@ layout: common
 	</section>
 	{%- endif %}
 
+	<br/>
+
 	<section>
-		{%- assign test = page.Commands | group_by:"Category" %}
-		{%- for Command in test -%}
-			{%- assign function_name = Command.name | downcase%}
-		<h2 id="{{function_name}}" class="function-name">
-			{{- site.data.functions[function_name].label -}}
-		</h2>
-		<ol>
-			{% for item in Command.items -%}
-			<li>
-				<p>{{item.Description | escape}}</p>
-				<pre><code>{{item.Command | escape_once}}</code></pre>
-				<div class="properties">
+		{%- for item in page.Categories -%}
+			<hr>
+			<h2 class="function-name">{{ item.Category }}</h2>
+			<hr>
+			<p>{{item.Description | escape}}</p>
+			<div class="properties">
 					<dl class="row"><dt class="property">Use case</dt><dd>{{item.Usecase | escape}}</dd></dl>
-					<dl class="row"><dt class="property">Privileges required</dt><dd>{{item.Privileges}}</dd></dl>
 					<dl class="row"><dt class="property">Operating systems</dt><dd>{{item.OperatingSystem}}</dd></dl>
 					<dl class="row"><dt class="property">ATT&CK&reg; technique</dt><dd><span data-attack-tid="{{item.MitreID}}">{{item.MitreID}}</span></dd></dl>
 					{%- if item.Tags %}<dl class="tags row"><dt class="property">Tags</dt><dd>{% for tag_items in item.Tags %}{% for tag_item in tag_items %}{%assign key=tag_item[0]%}{%assign value=tag_item[1]%}{%assign tag=key | append:': ' | append:value %}{% assign default_text = 'This function was tagged with "' | append: tag | append:'".' %}<div class="tag">{{tag}}<div class="tag-tooltip">{{site.data.tags[key][value] | default:default_text}}</div></div>{%endfor%}{%endfor%}</dd></dl>{%endif%}
-				</div>
-			</li>
-			{%- endfor %}
-		</ol>
-		{%- endfor %}
+					<dl class="row"><dt class="property">Code Samples</dt>
+
+					<ul>
+						{%- for code in item.Code_Sample %}
+						<li><a href="{{ code.Code }}">{{ code.Code }}</a></li>
+						{%-endfor %}
+					</ul></dl>
+
+			</div>
+			<br/>
+			<br/>
+
+		{%- endfor -%}
 	</section>

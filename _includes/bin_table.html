@@ -4,9 +4,10 @@
     <table id="bin-table">
         <thead>
             <tr>
-                <th style="width: 45%">Binary</th>
-                <th style="width: 20%">Functions</th>
-                <th style="width: 20%">Type</th>
+                <th style="width: 30%">Component</th>
+                <th style="width: 20%">Origin</th>
+                <th style="width: 20%">Target</th>
+                <th style="width: 10%">Type</th>
                 <th style="width: 15%">ATT&CK&reg; Techniques</th>
             </tr>
         </thead>
@@ -14,7 +15,8 @@
             {% for file in site.wic %}
             <tr>
                 <td><a href="{{ file.url | relative_url }}" class="bin-name">{{ file.Name }}</a></td>
-                <td>{% include function_list.html bin=file %}</td>
+                <td>{% include origin_list.html bin=file %}</td>
+                <td>{% include target_list.html bin=file %}</td>
                 <td>{% include get_type_name path=file.path %}</td>
                 <td>{% include get_attack_tids.html bin=file %}</td>
             </tr>
@@ -41,16 +43,19 @@
      var noResults = true;
      document.querySelectorAll('#bin-table tbody tr').forEach(function (row) {
          var binName = row.children[0].firstElementChild.innerText.toLowerCase();
-         var functions = Array.from(row.children[1].firstElementChild.children)
+         var target_origins = Array.from(row.children[1].firstElementChild.children)
                               .map(function (x) { return x.innerText })
                               .join('\n').toLowerCase();
+         target_origins = target_origins.concat(Array.from(row.children[2].firstElementChild.children)
+                              .map(function (x) { return x.innerText })
+                              .join('\n').toLowerCase());
 
-     var types = row.children[2].textContent.toLowerCase();
-     var techniques = row.children[3].textContent.toLowerCase();
+     var types = row.children[3].textContent.toLowerCase();
+     var techniques = row.children[4].textContent.toLowerCase();
 
          if (queryType === '/')
          {
-                var against = functions;
+                var against = target_origins;
          }
          else if (queryType === '#')
          {
