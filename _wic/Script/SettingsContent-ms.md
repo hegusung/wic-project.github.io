@@ -7,7 +7,7 @@ Categories:
   - Category: CMD
     Description: Command execution
     Usecase: Execute a command
-    MitreID: T1220
+    MitreID: T1059
     OperatingSystem: Windows 10, Windows 11
     Code_Sample:
     Tags:

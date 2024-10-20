@@ -7,7 +7,7 @@ Categories:
   - Category: CMD
     Description: CMD - execution
     Usecase: Execute an command via a CHM file
-    MitreID: T1220
+    MitreID: T1059
     OperatingSystem: Windows XP, Windows 7, Windows 8, Windows 10, Windows 11
     Code_Sample:
     Tags:
