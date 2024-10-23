@@ -69,14 +69,22 @@ layout: common
 					<dl class="row"><dt class="property">Operating systems</dt><dd>{{item.OperatingSystem}}</dd></dl>
 					<dl class="row"><dt class="property">ATT&CK&reg; technique</dt><dd><span data-attack-tid="{{item.MitreID}}">{{item.MitreID}}</span></dd></dl>
 					{%- if item.Tags %}<dl class="tags row"><dt class="property">Tags</dt><dd>{% for tag_items in item.Tags %}{% for tag_item in tag_items %}{%assign key=tag_item[0]%}{%assign value=tag_item[1]%}{%assign tag=key | append:': ' | append:value %}{% assign default_text = 'This function was tagged with "' | append: tag | append:'".' %}<div class="tag">{{tag}}<div class="tag-tooltip">{{site.data.tags[key][value] | default:default_text}}</div></div>{%endfor%}{%endfor%}</dd></dl>{%endif%}
+					
+					{%- if item.Code_Sample.size > 0 -%}
 					<dl class="row"><dt class="property">Code Samples</dt>
-
 					<ul>
 						{%- for code in item.Code_Sample %}
 						<li><a href="{{ code.Code }}">{{ code.Code }}</a></li>
 						{%-endfor %}
-					</ul></dl>
-
+					</ul>
+					</dl>
+					{%- endif -%}
+	
+					{%- if item.Code.size > 0 -%}
+					<dl class="row"><dt class="property">Example</dt><dd></dd></dl>
+					<pre>{{ item.Code }}</pre>
+					{%- endif -%}
+				
 			</div>
 			<br/>
 			<br/>
