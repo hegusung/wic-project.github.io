@@ -113,6 +113,4 @@ Detection:
 Resources:
   - Link: https://hegusung.github.io/LOLBAS-Project-hegusung.github.io/#/powershell
 Acknowledgement:
-  - Person: Hegusung
-    Handle: '@hegusung'
 ---

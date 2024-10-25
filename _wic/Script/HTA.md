@@ -27,6 +27,4 @@ Detection:
 Resources:
   - Link: https://hegusung.github.io/LOLBAS-Project-hegusung.github.io/#/hta
 Acknowledgement:
-  - Person: Hegusung
-    Handle: '@hegusung'
 ---

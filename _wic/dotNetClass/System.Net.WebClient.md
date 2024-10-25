@@ -21,6 +21,4 @@ Categories:
 Detection:
 Resources:
 Acknowledgement:
-  - Person: Hegusung
-    Handle: '@hegusung'
 ---

@@ -24,6 +24,4 @@ Detection:
 Resources:
   - Link: https://hegusung.github.io/LOLBAS-Project-hegusung.github.io/#/dll
 Acknowledgement:
-  - Person: Hegusung
-    Handle: '@hegusung'
 ---
